@@ -2,6 +2,16 @@
 
 session_name('Treinaweb');
 session_start();
+
+if (!isset($_SESSION['sessIdTime'])) {
+    $_SESSION['sessIdTime'] = time();
+} elseif (time() - $_SESSION['sessIdTime'] > 10) {
+    $_SESSION = [];
+    session_destroy();
+} else {
+    $_SESSION['sessIdTime'] = time();
+}
+
 if (!isset($_SESSION)) {
     header('Location: index.php');
     exit();
