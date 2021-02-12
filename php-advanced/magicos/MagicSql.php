@@ -14,7 +14,7 @@ class MagicSql
         return $this;
     }
 
-    public function getSql()
+    public function __toString()
     {
         return $this->sql;
     }

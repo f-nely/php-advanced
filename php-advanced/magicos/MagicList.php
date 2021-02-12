@@ -19,4 +19,9 @@ class MagicList
     {
         return $this->parameters;
     }
+
+    public function __toString()
+    {
+        return implode(', ', $this->parameters);
+    }
 }
