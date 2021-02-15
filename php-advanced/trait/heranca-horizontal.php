@@ -20,7 +20,7 @@ trait FileLogger
 
 class User
 {
-    use Logger, FileLogger;
+    use Authentication, AppAuth;
 
     public function grava()
     {
