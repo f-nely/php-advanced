@@ -10,22 +10,24 @@ use Symfony\Component\HttpKernel\HttpKernelInterface;
 
 class Core implements HttpKernelInterface
 {
-
+    protected $rotas = [];
     public function handle(Request $request, int $type = self::MASTER_REQUEST, bool $catch = true)
     {
         $rota = $request->getPathInfo();
 
-        switch($rota) {
-            case '/':
-                $response = new Response(sprintf('<b>%s</b> - Home do site', $rota));
-                break;
-            case '/contato':
-                $response = new Response(sprintf('<b>%s</b> - Página de contato', $rota));
-                break;
-            default:
-                $response = new Response('Ops. Página não encontrada.');
+        // Procura pela rota
+        if (array_key_exists($rota, $this->rotas)) {
+            $controller = $this->rotas[$rota];
+            $response = $controller();
+        } else {
+            $response = new Response('URL não encontrada.', Response::HTTP_NOT_FOUND);
         }
 
         return $response;
+    }
+
+    public function route($route, $controller)
+    {
+        $this->rotas[$route] = $controller;
     }
 }
