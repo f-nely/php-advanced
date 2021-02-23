@@ -1,0 +1,21 @@
+{
+  "name": "f-nely/symfony",
+  "description": "description",
+  "minimum-stability": "stable",
+  "license": "proprietary",
+  "authors": [
+    {
+      "name": "nely",
+      "email": "nelly.nf54@gmail.com"
+    }
+  ],
+  "require": {
+    "symfony/http-foundation": "^5.2",
+    "symfony/http-kernel": "^5.2"
+  },
+  "autoload": {
+    "psr-4": {
+      "Treinaweb\\" : "lib/Treinaweb"
+    }
+  }
+}
