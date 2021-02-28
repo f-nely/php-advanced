@@ -7,7 +7,7 @@ $capsule = new Capsule();
 $capsule->addConnection([
     'driver'    => 'pgsql',
     'host'      => 'localhost',
-    'database'  => 'tw_nfe',
+    'database'  => 'php_advanced',
     'username'  => 'postgres',
     'password'  => '704802',
     'charset'   => 'utf8',
